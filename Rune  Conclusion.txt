@@ -1,0 +1,105 @@
+Rune  Conclusion
+
+
+class RuneDetector
+{
+public:
+    {
+        struct Point2fWithIdx;
+        {
+            Point2f p;
+            size_t  idx;
+            Point2fWithIdx();//赋值
+        }
+
+        typedef enum
+        {
+            RUNE_ORB,//特征点提取
+            RUNE_GRAD,
+            RUNE_CANNY//边缘检测
+        }Methed_Type;
+
+        RuneDetector();//赋初值
+
+        RotatedRect getRect(int idx);//获得特定Rect
+        const RotatedRect &getRect(int idx) const;
+
+        pair<int, int> getTarget(const cv::Mat & image);//获得目标
+        {
+            gray,threshold;
+            findContous;
+            //drawContours,imshow;
+            初始化sudoku_rects;
+            if checkSudoku;
+            {
+                if use_perspective
+                    pair<int, int> idx = chooseTargetPerspective(src, sudoku_rects);
+                else
+                    pair<int, int> idx = chooseTarget(src, sudoku_rects);
+
+            }
+            return make_pair(-1,-1);
+        }
+    }
+protected:
+    {
+        pair<int, int> chooseTargetPerspective(const cv::Mat & image, 
+                    const std::vector<cv::RotatedRect> & sudoku_rects);
+                    //获得cell，Rect；
+        {
+            
+        }
+        
+        pair<int, int> chooseTarget(const cv::Mat & image, 
+                    const std::vector<cv::RotatedRect> & sudoku_rects);
+        
+        int findTargetORB(cv::Mat * cells);
+        int findTargetEdge(cv::Mat * cells);
+        int findTargetCanny(cv::Mat * cells);
+
+        RotatedRect adjustRect(const cv::RotatedRect & rect);
+        {
+            rect.width>rect.height  return;
+        }
+
+        bool checkSudoku(const std::vector<std::vector<cv::Point2i> > & contours,
+                    std::vector<cv::RotatedRect> & sudoku_rects);
+        {
+            vector Point2f centers;
+            //筛选检验轮廓
+            if contours.size >= 9;
+            {
+                RotatedRect rect , minAreaRect;//轮廓最小包裹矩形；
+                adjustRect //调整rect角度
+                //一系列筛选，ratio，rect.angle;
+
+                sudoku_rects.push_back;
+                centers.push_back;
+            }
+            if sudoku_rects.size <15 & >9
+            {
+                dist_map[15][15];
+                //求距离
+                //求中心大神符cell
+                  逐一比较每个神符中心到其余的距离和
+                  求最小，记下序号center_idx和最短距离和min_dist。 
+            }
+            vector<pair<float, int> > dist_center;
+            //sort三参数排序，
+            //choose the nearest 9 cell as sudoku_rects
+            return sudoku_rects.size() == 9;
+        }
+
+    }
+private
+    {
+        std::vector<cv::RotatedRect> sudoku_rects;
+	    int sudoku_width;	 // pixel               127
+	    int sudoku_height;   // piyel               71
+        bool use_perspective;                       false
+        Methed_Type type;                           RUNE_CANNY
+	    cv::Mat src;
+    }
+    
+
+}
