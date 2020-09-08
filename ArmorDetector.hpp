@@ -18,7 +18,7 @@ IN THE SOFTWARE.
 #pragma once
 
 #include "opencv2/highgui/highgui.hpp"
-#include "AngleSolver.hpp"
+#include <AngleSolver.hpp>
 
 #define TRUNC_ABS(a) ((a) > 0 ? (a) : 0);
 #define POINT_DIST(p1,p2) std::sqrt((p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y))
